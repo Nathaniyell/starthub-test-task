@@ -24,7 +24,7 @@ export default async function UserListPage() {
       <header className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">StartHub Users</h1>
         <p className="text-gray-600 max-w-3xl">
-          Meet our talented Users. Click &quot;View Details&quot; to see full profiles
+          Meet our talented Users
         </p>
       </header>
 
