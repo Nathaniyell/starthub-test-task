@@ -1,6 +1,3 @@
-import usersData from "@/data/users.json"
-
-
 export interface User {
     id: string
     name: string
@@ -9,15 +6,23 @@ export interface User {
     avatar: string
     contact: string
   }
- 
   
-  // This function now reads from the JSON file
+  
+  import usersData from "@/data/users.json"
+  
+  
   export async function getUserList(): Promise<User[]> {
-    // We can still simulate a network delay if desired
+        await new Promise((resolve) => setTimeout(resolve, 100))
+  
+    return usersData as User[]
+  }
+  
+  
+  export async function getUserById(id: string): Promise<User | undefined> {
     await new Promise((resolve) => setTimeout(resolve, 100))
   
-    // Type assertion to ensure the JSON data matches our User interface
-    return usersData as User[]
+    const users = usersData as User[]
+    return users.find((user) => user.id === id)
   }
   
   
