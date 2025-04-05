@@ -26,7 +26,7 @@ A modern, accessible, and SEO-friendly user directory application built with **N
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/nextjs-user-directory.git
+   git clone https://github.com/Nathaniyell/starthub-test-task
    cd nextjs-user-directory
    ```
 
