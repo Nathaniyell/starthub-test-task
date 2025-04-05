@@ -8,7 +8,6 @@ A modern, accessible, and SEO-friendly user directory application built with **N
 ## Features
 
 - **Server-Side Rendering (SSR)** - Optimized for SEO with pre-rendered content
-- **Dynamic Routing** - Clean URL structure for user profiles (`/users/[id]`)
 - **SEO Optimized** - Built-in Metadata API for search engine visibility
 - **Accessibility First** - WCAG 2.1 AA compliant interface
 - **Responsive Design** - Works on all device sizes
@@ -97,8 +96,7 @@ Example accessible component:
   className="focus:outline-none focus:ring-2 focus:ring-blue-500"
 >
   <h2 id={`user-${user.id}-name`}>{user.name}</h2>
-  {/* ... */}
-</article>
+ </article>
 ```
 
 ## 📂 Data Handling
@@ -137,11 +135,6 @@ export async function getUserList(): Promise<User[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 100));
   return usersData as User[];
-}
-
-export async function getUserById(id: string): Promise<User | undefined> {
-  await new Promise((resolve) => setTimeout(resolve, 100));
-  return (usersData as User[]).find((user) => user.id === id);
 }
 ```
 

@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | User Directory",
-    default: "User Directory | StartHub",
+    template: "%s | StartHub User",
+    default: "StartHub Users",
   },
   description: "Browse our complete list of users and team members with detailed profiles and contact information.",
   keywords: ["users", "team", "directory", "profiles", "organization", "contact", "employee"],

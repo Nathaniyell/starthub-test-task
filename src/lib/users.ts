@@ -18,11 +18,4 @@ export interface User {
   }
   
   
-  export async function getUserById(id: string): Promise<User | undefined> {
-    await new Promise((resolve) => setTimeout(resolve, 100))
-  
-    const users = usersData as User[]
-    return users.find((user) => user.id === id)
-  }
-  
   

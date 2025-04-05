@@ -3,16 +3,16 @@ import { getUserList } from "@/lib/users"
 import UserCard from "@/components/user-card"
 
 export const metadata: Metadata = {
-  title: "User Directory | StartHub",
-  description: "Browse our complete list of users and team members with detailed profiles and information.",
+  title: "StartHub Users",
+  description: "Browse our complete list of users with detailed profiles and information.",
   openGraph: {
-    title: "User Directory | StartHub",
-    description: "Browse our complete list of users and team members with detailed profiles and information.",
-    url: "/users",
+    title: "StartHub Users",
+    description: "Browse our complete list of users with detailed profiles and information.",
+    url: "/",
     type: "website",
   },
   alternates: {
-    canonical: "/users",
+    canonical: "/",
   },
 }
 
@@ -31,8 +31,14 @@ export default async function UserListPage() {
       <section aria-labelledby="user-directory-heading">
         <h2 id="user-directory-heading" className="sr-only">User Directory</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {users.map((user) => (
-            <UserCard key={user.id} user={user} />
+          {users.map((user, index) => (
+            <UserCard 
+              key={user.id} 
+              user={user} 
+              tabIndex={0} 
+              ariaPosInSet={index + 1}
+              ariaSetSize={users.length}
+            />
           ))}
         </div>
       </section>
