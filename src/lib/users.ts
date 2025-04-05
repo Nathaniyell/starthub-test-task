@@ -12,7 +12,7 @@ export interface User {
   
   
   export async function getUserList(): Promise<User[]> {
-        await new Promise((resolve) => setTimeout(resolve, 100))
+        await new Promise((resolve) => setTimeout(resolve, 2000))
   
     return usersData as User[]
   }
