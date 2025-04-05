@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "StartHub Users",
     description: "Browse our complete list of users with detailed profiles and information.",
-    url: "https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/",
+    url: "https://starthub-test-task.vercel.app/",
     type: "website",
   },
   alternates: {
-    canonical: "https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/",
+    canonical: "https://starthub-test-task.vercel.app/",
   },
 }
 
@@ -32,10 +32,10 @@ export default async function UserListPage() {
         <h2 id="user-directory-heading" className="sr-only">User Directory</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {users.map((user, index) => (
-            <UserCard 
-              key={user.id} 
-              user={user} 
-              tabIndex={0} 
+            <UserCard
+              key={user.id}
+              user={user}
+              tabIndex={0}
               ariaPosInSet={index + 1}
               ariaSetSize={users.length}
             />

@@ -21,17 +21,17 @@ export const metadata: Metadata = {
   },
   description: "Browse our complete list of users and team members with detailed profiles and contact information.",
   keywords: ["users", "team", "directory", "profiles", "organization", "contact", "employee"],
-  authors: [{ name: "StartHub", url: "https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/" }],
-  metadataBase: new URL("https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/"), 
+  authors: [{ name: "StartHub", url: "https://starthub-test-task.vercel.app/" }],
+  metadataBase: new URL("https://starthub-test-task.vercel.app/"),
   alternates: {
-    canonical: "/", 
+    canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/",
+    url: "https://starthub-test-task.vercel.app/",
     siteName: "StartHub",
-    images: [ 
+    images: [
       {
         url: "/users-ss.png",
         width: 1200,
@@ -43,18 +43,18 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@_kvngNath",
-    images: "/users-ss.png", 
+    images: "/users-ss.png",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: { 
+    googleBot: {
       index: true,
       follow: true,
       "max-image-preview": "large",
     },
   },
-  icons: { 
+  icons: {
     icon: "/favicon.ico",
     // apple: "/apple-touch-icon.png",
   },
