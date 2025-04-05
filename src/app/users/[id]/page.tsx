@@ -6,6 +6,11 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getInitials } from "@/lib/getInitials"
 
+interface PageProps {
+  params: { id: string }
+  searchParams?: { [key: string]: string | string[] | undefined }
+}
+
 export async function generateStaticParams() {
   const users = await getUserList()
   return users.map((user) => ({
@@ -15,37 +20,22 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: {
-  params: { id: string }
-}): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const user = await getUserById(params.id)
-
-  if (!user) {
-    return {
-      title: "User Not Found",
-    }
-  }
-
   return {
-    title: `${user.name} | StartHub`,
-    description: `${user.name} is a ${user.role} at StartHub. ${user.description}`,
-    openGraph: {
-      title: `${user.name} | StartHub`,
-      description: `${user.name} is a ${user.role} at StartHub. ${user.description}`,
-      type: "profile",
-    },
-    alternates: {
-      canonical: `/users/${user.id}`,
-    },
+    title: user?.name || "User Not Found",
+    description: user?.description,
   }
 }
 
-export default async function UserPage({ params }: { params: { id: string } }) {
+
+export default async function UserPage({ params }: PageProps) {
   const user = await getUserById(params.id)
 
   if (!user) {
     notFound()
   }
+
   const { avatar, role, name, email, description} = user
   return (
     <main className="container mx-auto px-4 py-8">
