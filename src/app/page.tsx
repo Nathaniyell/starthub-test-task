@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "StartHub Users",
     description: "Browse our complete list of users with detailed profiles and information.",
-    url: "/",
+    url: "https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/",
     type: "website",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/",
   },
 }
 

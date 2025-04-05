@@ -21,15 +21,15 @@ export const metadata: Metadata = {
   },
   description: "Browse our complete list of users and team members with detailed profiles and contact information.",
   keywords: ["users", "team", "directory", "profiles", "organization", "contact", "employee"],
-  authors: [{ name: "StartHub", url: "https://example.com" }],
-  metadataBase: new URL("https://example.com"), 
+  authors: [{ name: "StartHub", url: "https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/" }],
+  metadataBase: new URL("https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/"), 
   alternates: {
     canonical: "/", 
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "/users",
+    url: "https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/",
     siteName: "StartHub",
     images: [ 
       {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@ourorganization",
+    creator: "@_kvngNath",
     images: "/users-ss.png", 
   },
   robots: {
