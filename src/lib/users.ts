@@ -4,7 +4,7 @@ export interface User {
     role: string
     description: string
     avatar: string
-    contact: string
+    email: string
   }
   
   

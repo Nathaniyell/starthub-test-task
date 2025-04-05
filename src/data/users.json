@@ -6,7 +6,7 @@
       "description":
         "Alex leads our product strategy with over 8 years of experience in SaaS products and user-centered design.",
       "avatar": "/placeholder.svg?height=80&width=80",
-      "contact": "alex.j@example.com"
+      "email": "alex.j@example.com"
     },
     {
       "id": "2",
@@ -14,7 +14,7 @@
       "role": "Senior Developer",
       "description": "Samantha specializes in frontend architecture and has contributed to several open-source projects.",
       "avatar": "/placeholder.svg?height=80&width=80",
-      "contact": "sam.lee@example.com"
+      "email": "sam.lee@example.com"
     },
     {
       "id": "3",
@@ -23,7 +23,7 @@
       "description":
         "Marcus creates intuitive user experiences with a background in cognitive psychology and visual design.",
       "avatar": "/placeholder.svg?height=80&width=80",
-      "contact": "m.chen@example.com"
+      "email": "m.chen@example.com"
     },
     {
       "id": "4",
@@ -32,7 +32,7 @@
       "description":
         "Priya analyzes user behavior patterns to drive product decisions using machine learning techniques.",
       "avatar": "/placeholder.svg?height=80&width=80",
-      "contact": "priya.p@example.com"
+      "email": "priya.p@example.com"
     },
     {
       "id": "5",
@@ -40,7 +40,7 @@
       "role": "DevOps Engineer",
       "description": "James ensures our infrastructure is reliable, scalable, and secure across all environments.",
       "avatar": "/placeholder.svg?height=80&width=80",
-      "contact": "j.wilson@example.com"
+      "email": "j.wilson@example.com"
     },
     {
       "id": "6",
@@ -48,6 +48,6 @@
       "role": "Customer Success",
       "description": "Zoe works closely with our clients to ensure they get maximum value from our platform.",
       "avatar": "/placeholder.svg?height=80&width=80",
-      "contact": "zoe.r@example.com"
+      "email": "zoe.r@example.com"
     }
   ]

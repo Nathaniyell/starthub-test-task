@@ -4,8 +4,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { getInitials } from "@/lib/getInitials"
 
-// Generate static params for all users
 export async function generateStaticParams() {
   const users = await getUserList()
   return users.map((user) => ({
@@ -13,7 +13,6 @@ export async function generateStaticParams() {
   }))
 }
 
-// Generate metadata for each user page
 export async function generateMetadata({
   params,
 }: {
@@ -28,11 +27,15 @@ export async function generateMetadata({
   }
 
   return {
-    title: user.name,
-    description: `${user.name} is a ${user.role} at Our Organization. ${user.description}`,
+    title: `${user.name} | StartHub`,
+    description: `${user.name} is a ${user.role} at StartHub. ${user.description}`,
     openGraph: {
-      title: `${user.name} | Our Organization`,
-      description: `${user.name} is a ${user.role} at Our Organization. ${user.description}`,
+      title: `${user.name} | StartHub`,
+      description: `${user.name} is a ${user.role} at StartHub. ${user.description}`,
+      type: "profile",
+    },
+    alternates: {
+      canonical: `/users/${user.id}`,
     },
   }
 }
@@ -43,10 +46,14 @@ export default async function UserPage({ params }: { params: { id: string } }) {
   if (!user) {
     notFound()
   }
-
+  const { avatar, role, name, email, description} = user
   return (
     <main className="container mx-auto px-4 py-8">
-      <Link href="/" className="inline-flex items-center mb-6 text-sm font-medium text-gray-600 hover:text-gray-900">
+      <Link
+        href="/"
+        className="inline-flex items-center mb-6 text-sm font-medium text-gray-600 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm px-2 py-1 transition-colors"
+        aria-label="Back to all users"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -58,32 +65,47 @@ export default async function UserPage({ params }: { params: { id: string } }) {
           strokeLinecap="round"
           strokeLinejoin="round"
           className="mr-2"
+          aria-hidden="true"
         >
           <path d="m15 18-6-6 6-6" />
         </svg>
         Back to all users
       </Link>
 
+
       <Card className="max-w-2xl mx-auto">
         <CardContent className="p-6">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+          <article className="flex flex-col md:flex-row items-center md:items-start gap-6">
+
             <Avatar className="w-24 h-24">
-              <AvatarImage src={user.avatar} alt="" className="object-cover" />
-              <AvatarFallback className="text-2xl" aria-hidden="true">
-                {user.name.charAt(0)}
+              <AvatarImage
+                src={avatar}
+                alt={`Profile picture of ${name}`}
+                className="object-cover"
+              />
+              <AvatarFallback
+                className="text-2xl bg-gray-100 text-gray-800"
+                aria-hidden="true"
+              >
+                {getInitials(name)}
               </AvatarFallback>
             </Avatar>
 
             <div className="text-center md:text-left">
-              <h1 className="text-3xl font-bold mb-2">{user.name}</h1>
-              <p className="text-lg text-gray-500 mb-4">{user.role}</p>
 
-              <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                <h2 className="text-lg font-semibold mb-2">About</h2>
-                <p className="text-gray-700">{user.description}</p>
-              </div>
-
-              <div className="flex items-center justify-center md:justify-start text-gray-600">
+              <h1 className="text-3xl font-bold mb-2" id="user-name">{name}</h1>
+              <p className="text-lg text-gray-600 mb-4">{role}</p>
+              <section
+                className="bg-gray-50 p-4 rounded-lg mb-4"
+                aria-labelledby="about-heading"
+              >
+                <h2 id="about-heading" className="text-lg font-semibold mb-2">About</h2>
+                <p className="text-gray-700">{description}</p>
+              </section>
+              <div
+                className="flex items-center justify-center md:justify-start text-gray-600"
+                aria-label="email information"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -99,13 +121,17 @@ export default async function UserPage({ params }: { params: { id: string } }) {
                 >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
-                <span>{user.contact}</span>
+                <a
+                  href={`mailto:${email}`}
+                  className="hover:text-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-sm px-1 transition-colors"
+                >
+                  {email}
+                </a>
               </div>
             </div>
-          </div>
+          </article>
         </CardContent>
       </Card>
     </main>
   )
 }
-
