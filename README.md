@@ -45,6 +45,8 @@ A modern, accessible, and SEO-friendly user directory application built with **N
 
 4. Open your browser at [http://localhost:3000](http://localhost:3000)
 
+5. You can view the deployed app  [Here]('https://starthub-test-task-dvjdaekns-nathaniels-projects-dc2504e9.vercel.app/')
+
 ## 📈 SEO Implementation
 
 ### Server-Side Rendering
